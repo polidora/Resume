@@ -1,0 +1,256 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt,a4paper,]{awesome-cv}
+
+% Configure page margins with geometry
+\usepackage{geometry}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\colorlet{awesome}{awesome-red}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\name{Alexis}{Polidoro}
+
+\position{MA Candidate - Geography}
+\address{School of Earth, Environment and Society\\
+McMaster University\\
+1280 Main St West, Hamilton, Ontario, Canada L8S 1S4}
+
+\mobile{+1 905 525 9140}
+\email{\href{mailto:polidora@mcmaster.ca}{\nolinkurl{polidora@mcmaster.ca}}}
+\homepage{\url{https://straightupnorth.ca/alexis-polidoro/}}
+\orcid{0000-0002-9945-4269}
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+\usepackage{booktabs}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+
+
+% Pandoc CSL macros
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+\makecvfooter
+  {April 2022}
+    {Alexis Polidoro~~~·~~~Curriculum Vitae}
+  {\thepage~ of \pageref{LastPage}~}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
+
+
+
+\hypertarget{about-me}{%
+\section{About me}\label{about-me}}
+
+\begin{itemize}
+\tightlist
+\item
+  I trained in civil engineering before being adopted into geography.
+\item
+  My areas of interest include spatial analysis, spatial statistics,
+  transportation, travel behavior, cities.
+\item
+  Also, too, mathematics, computer languages, science fiction, poetry,
+  and memes.
+\item
+  I have been known to look professorial on occasion.
+\item
+  At this rate my only hope of being recognized is as the most promising
+  oldest researcher in my discipline.
+\end{itemize}
+
+\hypertarget{education}{%
+\section{Education}\label{education}}
+
+\begin{cventries}
+    \cventry{PhD}{McMaster University}{Hamilton, ON, Canada}{2022-2026}{\begin{cvitems}
+\item Title in Progress
+\end{cvitems}}
+    \cventry{M.A}{McMaster University}{Hamilton, ON, Canada}{2020-2022}{\begin{cvitems}
+\item What is Happening Where? An Evaluation of Social Science and Traditional Knowledge Research Trends in Nunavut (2004-2019)
+\end{cvitems}}
+    \cventry{B.Sc}{McMaster University}{Hamilton, ON, Canada}{2016-2020}{\begin{cvitems}
+\item Community Satisfation of Bicycle Infrastructure on McMaster Campus in Hamilton, ON
+\end{cvitems}}
+\end{cventries}
+
+\hypertarget{current-status-at-mcmaster}{%
+\section{Current Status at McMaster}\label{current-status-at-mcmaster}}
+
+Full Professor in the School of Earth, Environment and Society since
+2014. Tenured since 2007.
+
+\hypertarget{employment-history}{%
+\section{Employment History}\label{employment-history}}
+
+\hypertarget{academic}{%
+\subsection{Academic}\label{academic}}
+
+\begin{cventries}
+    \cventry{Research Assistant}{School of Earth, Society and Environment, McMaster University}{Hamilton, Canada}{September 2020-Present}{}\vspace{-4.0mm}
+    \cventry{Teaching Assistant}{School of Earth, Environment and Society, McMaster University}{Hamilton, Canada}{September 2020-April 2022}{}\vspace{-4.0mm}
+    \cventry{Teaching Assistant}{School of Geography and Earth Sciences, McMaster University}{Hamilton, Canada}{December 2019-April2020}{}\vspace{-4.0mm}
+    \cventry{Student Partner}{McPherson Institute, McMaster University}{Hamilton, ON, Canada}{September 2019-April 2020}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{industry}{%
+\subsection{Industry}\label{industry}}
+
+Surveyor and construction site supervisor (August 1993 -- March 1995)
+Topographical survey projects in Nuevo León, Mexico, sponsored by
+various Municipal Public Works Departments (Monterrey, Guadalupe, Santa
+Catarina), and by Mercedes-Benz. These projects involved in-field data
+collection and computer aided design. Construction site supervision.
+
+\newpage
+
+\hypertarget{areas-of-interest}{%
+\section{Areas of Interest}\label{areas-of-interest}}
+
+Spatial data analysis and statistics; transportation modeling; travel
+behavior; health geography; Geographic Information Systems.
+
+\hypertarget{honours}{%
+\section{Honours}\label{honours}}
+
+\hypertarget{visiting-professorships}{%
+\subsection{Visiting Professorships}\label{visiting-professorships}}
+
+\begin{cventries}
+\end{cventries}
+
+\hypertarget{scholarships}{%
+\subsection{Scholarships}\label{scholarships}}
+
+\begin{cventries}
+    \cventry{Graduate Scholarship}{McMaster University}{Japan}{September 2020 - April 2022}{}\vspace{-4.0mm}
+    \cventry{Southern Ontario Economic Development Council Scholarship}{McMaster University}{Canada}{Jun-18}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{scientific-awards}{%
+\subsection{Scientific Awards}\label{scientific-awards}}
+
+\begin{cventries}
+\end{cventries}
+
+\hypertarget{research-impact}{%
+\section{Research Impact}\label{research-impact}}
+
+Fig. \ref{fig:citations} is a summary of research impact according to
+Google Scholar.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{my-cv_files/figure-latex/citations-plot-1} 
+
+}
+
+\caption{\label{fig:citations}Citations per year according to Google Scholar}\label{fig:citations-plot}
+\end{figure}
+
+\hypertarget{lifetime-publications}{%
+\section{Lifetime Publications}\label{lifetime-publications}}
+
+\hypertarget{journal-articles}{%
+\subsection{Journal Articles}\label{journal-articles}}
+
+\hypertarget{bibliography}{}
+\leavevmode\vadjust pre{\hypertarget{ref-polidoro2022researchtrends}{}}%
+\CSLLeftMargin{1. }
+\CSLRightInline{Polidoro, A., Perrin, A., Buttle, C., Sinclair, L.,
+Regena, \& Shirley, J. (2022). Research trends in nunavut based on
+scientific research licenses {[}report{]}. \emph{McMaster University,
+Carleton University, and the Nunavut Research Institute}, 1--29.}
+
+
+\label{LastPage}~
+\end{document}

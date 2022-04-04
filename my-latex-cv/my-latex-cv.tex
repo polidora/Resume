@@ -1,0 +1,463 @@
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 10 March 2019
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2015 Jan Küster
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+
+%============================================================================%
+%
+%	DOCUMENT DEFINITION
+%
+%============================================================================%
+
+%we use article class because we want to fully customize the page and dont use a cv template
+\documentclass[10pt,a4paper,]{article}
+
+%----------------------------------------------------------------------------------------
+%	ENCODING
+%----------------------------------------------------------------------------------------
+
+%we use utf8 since we want to build from any machine
+\usepackage[utf8]{inputenc}
+
+%----------------------------------------------------------------------------------------
+%	LOGIC
+%----------------------------------------------------------------------------------------
+
+% provides \isempty test
+\usepackage{xifthen}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% some tex-live fonts - choose your own
+
+\usepackage[default]{raleway}
+
+% set font default
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+% more font size definitions
+\usepackage{moresize}
+
+
+%----------------------------------------------------------------------------------------
+%	PAGE LAYOUT  DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+%define page styles using geometry
+\usepackage[a4paper]{geometry}
+
+% for example, change the margins to 2 inches all round
+\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm}
+
+%use customized header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%less space between header and content
+\setlength{\headheight}{12pt}
+
+
+%customize entries left, center and right
+%\lhead{}
+%\chead{}
+%\rhead{}
+
+
+%indentation is zero
+\setlength{\parindent}{0mm}
+
+\usepackage{hyperref}
+\usepackage{fontawesome}
+
+%----------------------------------------------------------------------------------------
+%	TABLE /ARRAY DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%for layouting tables
+\usepackage{multicol}
+\usepackage{multirow}
+
+%extended aligning of tabular cells
+\usepackage{array}
+
+\newcolumntype{x}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}}%
+
+
+%----------------------------------------------------------------------------------------
+%	GRAPHICS DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%for header image
+\usepackage{graphicx}
+
+%for floating figures
+\usepackage{wrapfig}
+\usepackage{float}
+%\floatstyle{boxed}
+%\restylefloat{figure}
+
+%for drawing graphics
+\usepackage{tikz}
+\usetikzlibrary{shapes, backgrounds,mindmap, trees}
+
+
+%----------------------------------------------------------------------------------------
+%	Color DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+\usepackage{color}
+
+%accent color
+\definecolor{sectcol}{RGB}{0,150,255}
+
+%dark background color
+\definecolor{bgcol}{RGB}{110,110,110}
+
+%light background / accent color
+\definecolor{softcol}{RGB}{225,225,225}
+
+
+%============================================================================%
+%
+%
+%	DEFINITIONS
+%
+%
+%============================================================================%
+
+%----------------------------------------------------------------------------------------
+% 	HEADER
+%----------------------------------------------------------------------------------------
+
+% remove top header line
+\renewcommand{\headrulewidth}{0pt}
+
+%remove botttom header line
+\renewcommand{\footrulewidth}{0pt}
+
+%remove pagenum
+\renewcommand{\thepage}{}
+
+%remove section num
+\renewcommand{\thesection}{}
+
+%----------------------------------------------------------------------------------------
+% 	ARROW GRAPHICS in Tikz
+%----------------------------------------------------------------------------------------
+
+% a six pointed arrow poiting to the left
+\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}
+
+% include the left arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\larrow}[1]
+{\begin{tikzpicture}[scale=0.58]
+	 \filldraw[fill=#1!100,draw=#1!100!black]  \tzlarrow
+ \end{tikzpicture}
+}
+
+% a six pointed arrow poiting to the right
+\newcommand{\tzrarrow}{ (0,0.2) -- (0.1,0) -- (0.3,0) -- (0.2,0.2) -- (0.3,0.4) -- (0.1,0.4) -- cycle;}
+
+% include the right arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\rarrow}
+{\begin{tikzpicture}[scale=0.7]
+	\filldraw[fill=sectcol!100,draw=sectcol!100!black] \tzrarrow
+ \end{tikzpicture}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	custom sections
+%----------------------------------------------------------------------------------------
+
+% create a coloured box with arrow and title as cv section headline
+% param 1: section title
+%
+\renewcommand{\section}[1]
+{
+	\begin{center}
+		\large\textcolor{sectcol}{\textbf{#1}}
+	\end{center}
+}
+
+
+%create a coloured arrow with title as cv meta section section
+% param 1: meta section title
+%
+\newcommand{\metasection}[2]
+{
+%\begin{tabular*}{1\textwidth}{r r}
+\footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
+%\end{tabular*}
+}
+
+
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+%----------------------------------------------------------------------------------------
+%	 CV EVENT
+%----------------------------------------------------------------------------------------
+
+% creates a stretched box as cv entry headline followed by two paragraphs about
+% the work you did
+% param 1:	event time i.e. 2014 or 2011-2014 etc.
+% param 2:	event name (what did you do?)
+% param 3:	institution (where did you work / study)
+% param 4:	dots
+%
+\newcommand{\cvevent}[4]
+{
+
+\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
+\end{tabular*}
+
+\vspace{-2pt}
+\textcolor{softcol}{\hrule}
+\vspace{6pt}
+#4
+\vspace{1em}
+}
+
+% creates a stretched box as
+\newcommand{\cveventmeta}[2]
+{
+	\mbox{\mystrut \hspace{87pt}\textit{#1}}\\
+	#2
+}
+
+%----------------------------------------------------------------------------------------
+% CUSTOM STRUT FOR EMPTY BOXES
+%----------------------------------------- -----------------------------------------------
+\newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
+
+
+% Pandoc CSL macros
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+%============================================================================%
+%
+%
+%
+%	DOCUMENT CONTENT
+%
+%
+%
+%============================================================================%
+\begin{document}
+
+
+%use our custom fancy header definitions
+\pagestyle{fancy}
+
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+
+% Profile pic
+
+
+%---------------------------------------------------------------------------------------
+%	TITLE HEADLINE
+%----------------------------------------------------------------------------------------
+\vspace{-8pt}
+\begin{center}
+	\HUGE \textsc{Alexis Polidoro} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{Resume}\\[2pt]
+	\small MA Candidate - Geography
+\end{center}
+
+
+\vspace{6pt}
+
+
+%---------------------------------------------------------------------------------------
+%	META SECTION
+%----------------------------------------------------------------------------------------
+\metasection{\faicon{phone} +1 905 525
+9140}{\faicon{map-marker} \textbar{} School of Earth, Environment and
+Society \textbar{} McMaster University \textbar{} 1280 Main St West,
+Hamilton, Ontario, Canada L8S 1S4}
+\metasection{\faicon{envelope} \href{mailto:polidora@mcmaster.ca}{\nolinkurl{polidora@mcmaster.ca}}}{\faicon{home} \href{http://straightupnorth.ca/alexis-polidoro/}{straightupnorth.ca/alexis-polidoro/}}
+\vspace{-2pt}
+\textcolor{softcol}{\hrule}
+\vspace{6pt}
+
+\normalsize
+
+%---------------------------------------------------------------------------------------
+%	SUMMARAY (optional)
+%----------------------------------------------------------------------------------------
+
+
+%============================================================================%
+%
+%	CV SECTIONS AND EVENTS (MAIN CONTENT)
+%
+%============================================================================%
+
+
+
+\hypertarget{about-me}{%
+\section{About me}\label{about-me}}
+
+\begin{itemize}
+\tightlist
+\item
+  Master of Arts Candidate from McMaster University with a
+  specialization in Arctic Geography and community engagement. I have
+  over five years' experience as a student within the school of Earth,
+  Environment, and Society at McMaster University, where I have also
+  worked as a teaching assistant, research assistant, and McPherson
+  Institute student partner. Currently, I am collaborating on a
+  federally funded project with team members across Canada to
+  investigate how well research is serving Nunavummiut (the people of
+  Nunavut). \textless!--
+\end{itemize}
+
+\hypertarget{education}{%
+\section{Education}\label{education}}
+
+\cvevent{2022-2026}{PhD}{McMaster University- Hamilton, ON, Canada}{\begin{minipage}{0.7\textwidth}%
+\begin{itemize}%
+\item Title in Progress%
+\end{itemize}%
+\end{minipage}}
+\cvevent{2020-2022}{M.A}{McMaster University- Hamilton, ON, Canada}{\begin{minipage}{0.7\textwidth}%
+\begin{itemize}%
+\item What is Happening Where? An Evaluation of Social Science and Traditional Knowledge Research Trends in Nunavut (2004-2019)%
+\end{itemize}%
+\end{minipage}}
+\cvevent{2016-2020}{B.Sc}{McMaster University- Hamilton, ON, Canada}{\begin{minipage}{0.7\textwidth}%
+\begin{itemize}%
+\item Community Satisfation of Bicycle Infrastructure on McMaster Campus in Hamilton, ON%
+\end{itemize}%
+\end{minipage}}
+
+\hypertarget{employment-history}{%
+\section{Employment History}\label{employment-history}}
+
+\cvevent{September 2020-Present}{Research Assistant}{School of Earth, Society and Environment, McMaster University- Hamilton, Canada}{\empty}
+\cvevent{September 2020-April 2022}{Teaching Assistant}{School of Earth, Environment and Society, McMaster University- Hamilton, Canada}{\empty}
+\cvevent{December 2019-April2020}{Teaching Assistant}{School of Geography and Earth Sciences, McMaster University- Hamilton, Canada}{\empty}
+\cvevent{September 2019-April 2020}{Student Partner}{McPherson Institute, McMaster University- Hamilton, ON, Canada}{\empty}
+
+\#Talks
+
+\#\#Conference Presentations
+
+\cvevent{Nov-21}{What is Happening Where? An Evaluation of Social Science Research Trends in Nunavut (2004-2019)}{Associaion of Canadian Universities for Northern Studies (ACUNS)- Virtual}{\empty}
+\cvevent{Jun-21}{What is Happening Where? An Evaluation of Social Science Research Trends in Nunavut (2004-2019)}{International Congress of Arctic Social Sciences- Virtual}{\empty}
+\cvevent{Dec-20}{How Well is Research Serving Nunavummiut? Research Trends in Nunavut (2004-2019)}{Arctic Change- Virtual}{\empty}
+
+\#\#Panels
+
+\cvevent{Mar-22}{SEES Graduate Studies Information Session}{McMaster University- Virtual}{\empty}
+
+\#\#Other Speaking Events
+
+\hypertarget{honours}{%
+\section{Honours}\label{honours}}
+
+\cvevent{September 2020 - April 2022}{Graduate Scholarship}{McMaster University- Japan}{\empty}
+\cvevent{Jun-18}{Southern Ontario Economic Development Council Scholarship}{McMaster University- Canada}{\empty}
+
+\hypertarget{scientific-awards}{%
+\subsection{Scientific Awards}\label{scientific-awards}}
+
+\hypertarget{publications}{%
+\section{Publications}\label{publications}}
+
+\hypertarget{reports}{%
+\subsection{Reports}\label{reports}}
+
+\hypertarget{bibliography}{}
+\leavevmode\vadjust pre{\hypertarget{ref-polidoro2022researchtrends}{}}%
+\CSLLeftMargin{1. }
+\CSLRightInline{Polidoro, A., Perrin, A., Buttle, C., Sinclair, L.,
+Regena, \& Shirley, J. (2022). Research trends in nunavut based on
+scientific research licenses {[}report{]}. \emph{McMaster University,
+Carleton University, and the Nunavut Research Institute}, 1--29.}
+
+
+%--------------------------------------------------------------------------------------------------
+%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)
+%--------------------------------------------------------------------------------------------------
+
+\null
+\vspace*{\fill}
+\hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{- \textcolor{sectcol}{April
+2022}
+
+
+ - }}}
+
+%============================================================================%
+%
+%
+%
+%	DOCUMENT END
+%
+%
+%
+%============================================================================%
+\end{document}

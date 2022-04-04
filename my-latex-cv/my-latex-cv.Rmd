@@ -1,0 +1,150 @@
+---
+name: Alexis
+surname: Polidoro
+position: "MA Candidate - Geography"
+address: "
+         | School of Earth, Environment and Society
+         | McMaster University
+         | 1280 Main St West, Hamilton, Ontario, Canada L8S 1S4"
+phone: +1 905 525 9140
+www: straightupnorth.ca/alexis-polidoro/
+email: "polidora@mcmaster.ca"
+
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::latexcv:
+    theme: classic
+---
+```{r knitr-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE,
+                      fig.show = "asis", 
+                      # Width of figures in output document is 60% of linewidth
+                      out.width = "0.6\\linewidth", 
+                      fig.align = "center")
+```
+
+```{r current-year}
+# Retrieve current year
+current_year <- as.numeric(as.character(Sys.time(), '%Y')) # Update year
+```
+
+```{r load-packages}
+library(dplyr) # Data carpentry
+library(ggplot2) # Grammar of graphics
+library(here) # Package to simplify finding files within projects
+library(readr) # Package to read external data, e.g., csv files
+library(scholar) # Package to analyze citation data from Google Scholar
+library(tibble) # Package to work with simple data frames
+library(vitae) # Templates and functions to simplify the production and maintenance of curriculum vitae.
+```
+
+# About me
+
+* Master of Arts Candidate from McMaster University with a specialization in Arctic Geography and community engagement. I have over five years’ experience as a student within the school of Earth, Environment, and Society at McMaster University, where I have also worked as a teaching assistant, research assistant, and McPherson Institute student partner. Currently, I am collaborating on a federally funded project with team members across Canada to investigate how well research is serving Nunavummiut (the people of Nunavut). 
+<!--
+
+
+# Education
+
+```{r education-details}
+# Read assets and pass to detailed_entries()
+read_csv(paste0(here(),"/assets/education.csv")) %>% 
+  detailed_entries(what = Degree, 
+                   when = Year, 
+                   with = Institution,
+                   where = Where, 
+                   why = Thesis,
+                   # Inputs will be parsed as LaTeX code when .protect=FALSE
+                   .protect = FALSE)
+```
+
+
+# Employment History
+
+```{r employment-details}
+# Read assets and pass to detailed_entries()
+read_csv(paste0(here(),"/assets/employment.csv")) %>% 
+  detailed_entries(what = Position, 
+                   when = Year, 
+                   with = Organization,
+                   where = Where,
+                   .protect = FALSE)
+```
+
+#Talks
+
+##Conference Presentations
+
+```{r conference-details}
+read_csv(paste0(here(),"/assets/talks.csv")) %>%
+  # Filter honors of type "Conference"
+  dplyr::filter(What == "Conference") %>% 
+  detailed_entries(what = Title, 
+                   when = Year, 
+                   with = Organization,
+                   where = Where,
+                   .protect = FALSE)
+```
+
+##Panels
+
+```{r panel-details}
+read_csv(paste0(here(),"/assets/talks.csv")) %>%
+  # Filter honors of type "Panel"
+  dplyr::filter(What == "Panel") %>% 
+  detailed_entries(what = Title, 
+                   when = Year, 
+                   with = Organization,
+                   where = Where,
+                   .protect = FALSE)
+```
+##Other Speaking Events
+
+```{r other-details}
+read_csv(paste0(here(),"/assets/talks.csv")) %>%
+  # Filter honors of type "Other"
+  dplyr::filter(What == "Other") %>% 
+  detailed_entries(what = Title, 
+                   when = Year, 
+                   with = Organization,
+                   where = Where,
+                   .protect = FALSE)
+```
+
+# Honours
+
+```{r scholarships-details}
+read_csv(paste0(here(),"/assets/honors.csv")) %>%
+  # Filter honors of type "Scholarship"
+  dplyr::filter(Type == "Scholarship") %>% 
+  detailed_entries(what = Honor, 
+                   when = Year, 
+                   with = Organization,
+                   where = Where,
+                   .protect = FALSE)
+```
+
+## Scientific Awards
+
+```{r scientific-awards-details}
+read_csv(paste0(here(),"/assets/honors.csv")) %>%
+  # Filter honors of type "Scientific Awards"
+  dplyr::filter(Type == "Scientific Awards") %>% 
+  detailed_entries(what = Honor, 
+                   when = Year, 
+                   with = Organization,
+                   where = Where,
+                   why = With,
+                   .protect = FALSE)
+```
+
+# Publications
+## Reports
+
+```{r refereed-publications}
+bibliography_entries(paste0(here(),"/assets/refereed-publications.bib")) %>%
+  #bibliography_entries(paste0(here(),"/assets/savedrecs_2.bib")) %>%
+  arrange(desc(issued), desc(author$family))
+```
